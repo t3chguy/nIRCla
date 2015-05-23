@@ -1,0 +1,21 @@
+var config = {
+	outputs: [
+		{
+			name:  'NIRCLA for %c',
+			logFormat: 'supybot',
+
+			logDir: '/var/lib/limnoria/logs/%s/%c/',
+			webDir: './web/data/',
+
+		}
+	],
+
+	log: {
+		'MESSAGE': ['STDOUT'],
+		'WARNING': ['errors.log', 'STDERR'],
+		'ERROR': ['errors.log', 'STDERR'],
+		'CRITICAL': ['errors.log', 'STDERR']
+	}
+}
+
+module.exports = config;

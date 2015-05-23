@@ -26,10 +26,10 @@ var async = require('async');
 // And we should read our config
 var config = require('../config.js');
 
-var JSIS = function() {
+var NIRCLA = function() {
 
 	/**
-	 * Everyone needs a version number, even JSIS
+	 * Everyone needs a version number, even NIRCLA
 	 */
 	this.version = '0.9';
 
@@ -72,41 +72,41 @@ var JSIS = function() {
 	};
 
 	/**
-	 * Make sure the channel config is valid and contains all necessary items
+	 * Make sure the output config is valid and contains all necessary items
 	 *
-	 * @param channelConfig The channel's configuration from the config file
+	 * @param outputConfig The channel's configuration from the config file
 	 * @param index The index of the channel in the config file, for error messages
 	 * @return {Object} Valid channel config
 	 * @throws {Error} In case validation fails
 	 */
-	this.parseChannelConfig = function( channelConfig, index ) {
+	this.parseOutputConfig = function( outputConfig, index ) {
 
 		var i, count;
 
 		// What are our mandatory settings?
-		var mandatorySettings = ['name', 'logFormat', 'logPath', 'destination'];
+		var mandatorySettings = ['name', 'logFormat', 'logDir', 'webDir'];
 
 		// Loop through them
 		for( i=0, count=mandatorySettings.length; i<count; ++i ) {
 
 			// Check that current setting is defined
 			var setting = mandatorySettings[i];
-			if( !channelConfig[setting] ) {
+			if( !outputConfig[setting] ) {
 
-				// Try and get the channel name for verbosity
-				var channelName = (typeof channelConfig.name!=='undefined'?' (' + channelConfig.name + ')':'');
+				// Try and get the output name for verbosity
+				var outputName = (typeof outputConfig.name!=='undefined'?' (' + outputConfig.name + ')':'');
 
 				// And throw an error
-				throw new Error('Channel ' + index + channelName + ' is missing mandatory setting: ' + setting);
+				throw new Error('output ' + index + outputName + ' is missing mandatory setting: ' + setting);
 			}
 		}
 
 		// Default settings
-		var defaultChannelConfig = {
+		var defaultOutputConfig = {
 			name: null,
-			destination: null,
 			logFormat: null,
-			logPath: null,
+            logDir: null,
+			webDir: null,
 			logEncoding: 'UTF-8',
 
 			theme: 'default',
@@ -144,14 +144,14 @@ var JSIS = function() {
 
 		// Create the config
 		var config = {};
-		for( var key in defaultChannelConfig ) {
+		for( var key in defaultOutputConfig ) {
 
-			if( defaultChannelConfig.hasOwnProperty(key)===true ) {
+			if( defaultOutputConfig.hasOwnProperty(key)===true ) {
 
-				if( typeof channelConfig[ key ]!=='undefined') {
-					config[ key ] = channelConfig[ key ];
+				if( typeof outputConfig[ key ]!=='undefined') {
+					config[ key ] = outputConfig[ key ];
 				} else {
-					config[ key ] = defaultChannelConfig[ key ];
+					config[ key ] = defaultOutputConfig[ key ];
 				}
 
 			}
@@ -169,7 +169,7 @@ var JSIS = function() {
 			if( config[ tzItems[i] ]===null ) {
 				reset = true;
 			} else if( tzRegex.test( config[ tzItems[i] ] )===false ) {
-				throw new Error('Channel ' + index + ' (' + config.name + ') setting "' + tzItems[i] + '" value "' + config[ tzItems[i] ] + '" does not seem like a valid timezone');
+				throw new Error('Output ' + index + ' (' + config.name + ') setting "' + tzItems[i] + '" value "' + config[ tzItems[i] ] + '" does not seem like a valid timezone');
 			}
 
 			if( reset===true ) {
@@ -386,31 +386,32 @@ var JSIS = function() {
 		// Log this awesome event
 		this.startTime = new Date().getTime();
 
-		Logger.log('DEBUG', 'Starting JSIS v' + this.version);
+		Logger.log('DEBUG', 'Starting NIRCLA v' + this.version);
 
 		try {
 			var i = 1;
-			// Loop through all defined channels
-			async.eachSeries(
-				config.channels, function(channel, doneCallback) {
-	
+			// Loop through all defined outputs
+			async.eachSeries(config.outputs, function(output, doneCallback) {
+
 					// Process the configuration to a useful format
-					var channelConfig = this.parseChannelConfig( channel, i++ );
+					var outputConfig = this.parseOutputConfig( output, i++ );
 
 					// Create an object for keeping the logs
-					var channelLog = new LogData(channelConfig);
+					var channelLog = new LogData(outputConfig);
 
 					// Initialize a log relayer
-					var logRelayer = new LogRelayer(channelLog, channelConfig);
+					var logRelayer = new LogRelayer(channelLog, outputConfig);
 
 					// Try and load the log type -specific reader, will crash if not found
-					var logReaderClass = require('../classes/LogReaders/' + channelConfig.logFormat + '.js');
+					var logReaderClass = require('../classes/LogReaders/' + outputConfig.logFormat + '.js');
 
 					// And instantiate it
-					var logReader = new logReaderClass(logRelayer, channelConfig);
+					var logReader = new logReaderClass(logRelayer, outputConfig);
 
 					// And start processing the channel
-					this.processChannel(channelConfig, channelLog, logReader, logRelayer, doneCallback);
+
+                    //this.processChannel(outputConfig, channelLog, logReader, logRelayer, doneCallback);
+                    Utils.getDirectoryFiles('./logs/', true, console.log)
 
 				}.bind(this),
 				callback
@@ -426,4 +427,4 @@ var JSIS = function() {
 };
 
 
-module.exports = new JSIS();
+module.exports = new NIRCLA();

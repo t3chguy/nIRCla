@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Web-Development-Guru/nIRCla",
   "dependencies": {
-    "colors": "^1.1.0"
+    "colors": "^1.1.0",
+    "ejs": "^2.3.1"
   }
 }
