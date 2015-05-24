@@ -9,8 +9,8 @@
     "utf8": "~2.1.0"
   },
   "devDependencies": {
-    "glob": "latest",
-    "nodeunit": "latest"
+      "glob":"~3.2.9",
+      "nodeunit":"~0.8.6"
   },
   "scripts": {
     "test": "node node_modules/nodeunit/bin/nodeunit test"
