@@ -1,6 +1,6 @@
 {
   "name": "nIRCla",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "Node-JS Internet Relay Chat Log Analyzer",
   "main": "nircla.js",
   "dependencies": {
@@ -20,8 +20,11 @@
     "url": "git://github.com/Web-Development-Guru/nIRCla.git"
   },
   "keywords": [
-    "irc",
-    "stats"
+    "IRC",
+    "Log",
+    "Analyzer",
+    "Graph",
+    "Stats"
   ],
   "author": "Michael Telatynski aka. Web-Development-Guru",
   "license": "MIT",
