@@ -28,12 +28,15 @@ NIRCLA supports the default log formats (with optional seconds in timestamps) of
 
  - eggdrop
  - irssi
-
-There is also support for the following formats, but could use a bit more users to confirm that their default format really works:
  - weechat
  - supybot
 
 
 ## What are the requirements, how to use it?
 
-Seems to work with NodeJS v0.6, v0.8 and v0.10.
+Tested with NodeJS v0.12, v0.10
+Requires the packages listed in the package.json:
+
+ - ejs
+ - utf8
+ - async
