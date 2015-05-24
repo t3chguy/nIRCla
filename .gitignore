@@ -1,5 +1,4 @@
-node_modules/
-config.js
-.idea/
-test_files/destination/
-logs/*.log
+/node_modules/
+/config.js
+/test_files/destination/
+/logs/*.log
