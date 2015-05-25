@@ -5,8 +5,8 @@ html, body {
 	font-family: "Trebuchet MS", sans-serif;
 	font-size: 14px;
 	margin: 0;
-	background: url('../images/dark_circles.png');
 	line-height: 1.4;
+	min-width: 1000px;
 }
 
 /* Content areas */
@@ -247,6 +247,7 @@ section {
  */
 
 footer {
+	background: url('../images/dark_circles.png');
 	padding: 30px 0;
 	border-top: 1px solid #222;
 	color: #ccc;
