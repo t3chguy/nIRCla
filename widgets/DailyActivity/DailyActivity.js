@@ -43,7 +43,8 @@ var DailyActivity = function(statsAnalyzer, channelConfig) {
 		i=0;
 		var mod = Math.floor(stats.numDays / 5);
 		var fullDateList = [];
-		for( var date in stats.linesByDayByHour.reverse() ) {
+		console.log(stats.linesByDayByHour);
+		for( var date in stats.linesByDayByHour ) {
 
 			if( stats.linesByDayByHour.hasOwnProperty(date)===false ) {
 				continue;
