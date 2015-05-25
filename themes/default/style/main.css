@@ -6,6 +6,7 @@ html, body {
 	font-size: 14px;
 	margin: 0;
 	line-height: 1.4;
+	min-width: 1000px;
 }
 
 /* Content areas */
