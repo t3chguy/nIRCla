@@ -43,7 +43,6 @@ var DailyActivity = function(statsAnalyzer, channelConfig) {
 		i=0;
 		var mod = Math.floor(stats.numDays / 5);
 		var fullDateList = [];
-		console.log(fullDateList);
 		for( var date in stats.linesByDayByHour ) {
 
 			if( stats.linesByDayByHour.hasOwnProperty(date)===false ) {
@@ -85,6 +84,7 @@ var DailyActivity = function(statsAnalyzer, channelConfig) {
 
 			i++;
 		}
+		console.log(fullDateList);
 
 		// Collect the tooltip data
 		var times = ['night', 'morning', 'day', 'evening'], text;
