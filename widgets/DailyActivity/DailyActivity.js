@@ -85,6 +85,13 @@ var DailyActivity = function(statsAnalyzer, channelConfig) {
 			i++;
 		}
 
+		this.graphData.night.reverse();
+		this.graphData.morning.reverse();
+		this.graphData.day.reverse();
+		this.graphData.evening.reverse();
+		this.fullDateList.reverse();
+		this.dateList.reverse();
+
 		// Collect the tooltip data
 		var times = ['night', 'morning', 'day', 'evening'], text;
 		for( i=0, count=times.length; i<count; ++i ) {
