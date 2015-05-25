@@ -43,7 +43,7 @@ var DailyActivity = function(statsAnalyzer, channelConfig) {
 		i=0;
 		var mod = Math.floor(stats.numDays / 5);
 		var fullDateList = [];
-		for( var date in stats.linesByDayByHour ) {
+		for( var date in reverse(stats.linesByDayByHour) ) {
 
 			if( stats.linesByDayByHour.hasOwnProperty(date)===false ) {
 				continue;
@@ -128,7 +128,6 @@ var DailyActivity = function(statsAnalyzer, channelConfig) {
 	this.getJSON = function() {
 		return {
 			dateList: this.dateList,
-			//hourList: this.hourList,
 			tooltipData: this.tooltipData,
 			graphData: this.graphData
 		};
