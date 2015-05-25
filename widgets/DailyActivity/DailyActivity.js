@@ -101,6 +101,7 @@ var DailyActivity = function(statsAnalyzer, channelConfig) {
 				this.tooltipData.push( text );
 			}
 		}
+		this.tooltipData.reverse();
 	};
 
 
