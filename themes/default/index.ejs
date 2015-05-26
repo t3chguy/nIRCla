@@ -6,7 +6,7 @@
 	<meta charset="utf-8" />
 	<!-- Enable Chrome Frame for the users with it -->
 	<meta http-equiv="X-UA-Compatible" content="chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<!-- Page title -->
 	<title><%= channelName %> IRC statistics from <%= statsAnalyzer.statsFrom %> to <%= statsAnalyzer.statsTo %></title>
@@ -14,43 +14,6 @@
 	<!-- Link our stylesheets -->
 	<link rel="stylesheet" type="text/css" href="style/reset.css" />
 	<link rel="stylesheet" type="text/css" href="style/main.css" />
-
-	<!-- Include jQuery -->
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-	<!-- Include the Rgraph library
-
-	NOTICE: This library does allow distribution with open source projects compatible with commercial code. It however
-	still requires you to buy a commercial license, if you're using it for commercial purposes, e.g. if you're graphing
-	your company's IRC channel stats.
-	-->
-	<!--<script type="text/javascript" src="lib/RGraph.combined.js"></script>-->
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/excanvas/excanvas.js"></script>
-	<!--<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.bar.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.bipolar.js"></script>-->
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.annotate.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.context.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.core.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.dynamic.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.effects.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.key.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.resizing.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.tooltips.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.zoom.js"></script>
-	<!--<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.gantt.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.gauge.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.hbar.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.hprogress.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.led.js"></script>-->
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.line.js"></script>
-	<!--<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.meter.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.modaldialog.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.pie.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.radar.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.rscatter.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.scatter.js"></script>
-	<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.vprogress.js"></script>-->
-
 
 	<%- customHeadHtml %>
 </head>
@@ -95,6 +58,40 @@
 		</p>
 	</div>
 </footer>
+<!-- Include jQuery -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
+<!-- Include the Rgraph library
+
+NOTICE: This library does allow distribution with open source projects compatible with commercial code. It however
+still requires you to buy a commercial license, if you're using it for commercial purposes, e.g. if you're graphing
+your company's IRC channel stats.
+-->
+<!--<script type="text/javascript" src="lib/RGraph.combined.js"></script>-->
+<script src="//cdn.jsdelivr.net/rgraph/20131231/excanvas/excanvas.js"></script>
+<!--<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.bar.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.bipolar.js"></script>-->
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.annotate.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.context.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.core.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.dynamic.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.effects.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.key.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.resizing.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.tooltips.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.common.zoom.js"></script>
+<!--<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.gantt.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.gauge.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.hbar.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.hprogress.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.led.js"></script>-->
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.line.js"></script>
+<!--<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.meter.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.modaldialog.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.pie.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.radar.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.rscatter.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.scatter.js"></script>
+<script src="//cdn.jsdelivr.net/rgraph/20131231/libraries/RGraph.vprogress.js"></script>-->
 </body>
 </html>
