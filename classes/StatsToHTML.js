@@ -33,7 +33,7 @@ var StatsToHTML = function(statsAnalyzer, channelConfig, startTime, version) {
 			// We're going to filter the files list a bit
 			var filteredFiles = [];
 			// What files do we copy
-			var fileFilter = /\.(css|js|jpg|png)$/i;
+			var fileFilter = /\.(css|js|jpg|png|ico)$/i;
 
 			// Loop through the files
 			for( var i=0, count=files.length; i<count; ++i ) {
